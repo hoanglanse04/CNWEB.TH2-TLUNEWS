@@ -1,0 +1,115 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+
+/* Table Styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table thead {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Button Styling */
+.btn {
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* Search Bar and Title */
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.search-bar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 8px 12px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.search-bar button {
+    background-color: #f1f1f1;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #ddd;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+}
+
+footer .logo_ft img {
+    height: 20px;
+}
+
+footer a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: #007bff;
+}
