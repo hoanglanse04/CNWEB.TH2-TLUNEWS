@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#ffffff">
   <title>Trang quản trị</title>
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.png" />
-  <link rel="stylesheet" href="./admin_css/style_index.css">  
+  <link rel="stylesheet" href="./admin_css/style_index.css">
   <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/fontawesome.min.css" />
   <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/all.min.css" />
@@ -124,11 +124,12 @@
             <table class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Tiêu đề</th>
-                  <th>Danh mục</th>
-                  <th>Ngày tạo</th>
-                  <th class="text-center">Hành động</th>
+                  <th style="width: 5%;">ID</th>
+                  <th style="width: 15%;">Danh mục</th>
+                  <th style="width: 15%;">Tiêu đề</th>
+                  <th style="width: 35%;">Nội dung</th>
+                  <th style="width: 15%;">Ngày tạo</th>
+                  <th class="text-center" style="width: 15%;">Hành động</th>
                 </tr>
               </thead>
               <tbody>
@@ -137,11 +138,14 @@
                 if (!empty($news) && is_array($news)): ?>
                   <?php foreach ($news as $item): ?>
                     <tr>
-                      <td><?= htmlspecialchars($item['id']) ?></td>
-                      <td><?= htmlspecialchars($item['title']) ?></td>
-                      <td><?= htmlspecialchars($item['category_name']) ?></td>
-                      <td><?= htmlspecialchars($item['created_at']) ?></td>
-                      <td class="text-center">
+                      <td style="width: 5%;"><?= htmlspecialchars($item['id']) ?></td>
+                      <td style="width: 15%;"><?= htmlspecialchars($item['category_name']) ?></td>
+                      <td style="width: 15%;"><?= htmlspecialchars($item['title']) ?></td>
+                      <td style="width: 35%;" class="">
+                        <?= htmlspecialchars(substr($item['content'], 0, 70)).'...' ?> <!-- Lấy 50 ký tự đầu tiên -->
+                      </td>
+                      <td style="width: 15%;"><?= htmlspecialchars($item['created_at']) ?></td>
+                      <td style="width: 15%;" class="text-center ">
                         <a href="dashboard.php?controller=admin&action=editNews&id=<?= htmlspecialchars($item['id']) ?>" class="btn btn-info">Sửa</a>
                         <a href="dashboard.php?controller=admin&action=deleteNews&id=<?= htmlspecialchars($item['id']) ?>"
                           class="btn btn-warning"
