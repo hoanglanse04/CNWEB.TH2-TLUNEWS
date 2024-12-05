@@ -1,3 +1,5 @@
+
+
 <?php
 include '../../controllers/AdminController.php';
 
@@ -25,7 +27,6 @@ switch ($action) {
     case 'addNews': // Thêm bài viết
         $controller->addNews();
         break;
-
     default:
         echo "Hành động không hợp lệ!";
 }
