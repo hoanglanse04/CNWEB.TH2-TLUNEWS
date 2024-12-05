@@ -10,7 +10,7 @@ class News {
 
     public function getAll() {
         $query = "
-            SELECT n.id, n.title, c.name AS category_name, n.created_at 
+            SELECT n.id, n.title,n.content, c.name AS category_name, n.created_at 
             FROM news n
             LEFT JOIN categories c ON n.category_id = c.id
         ";
