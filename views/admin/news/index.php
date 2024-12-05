@@ -8,15 +8,16 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <title>Trang quản trị</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../../../assets/img/favicon.png" />
-  <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="../../../assets/plugins/fontawesome/css/fontawesome.min.css" />
-  <link rel="stylesheet" href="../../../assets/plugins/fontawesome/css/all.min.css" />
-  <link rel="stylesheet" href="../../../assets/css/line-awesome.min.css" />
-  <link rel="stylesheet" href="../../../assets/css/material.css" />
-  <link rel="stylesheet" href="../../../assets/css/line-awesome.min.css" />
-  <link rel="stylesheet" href="../../../assets/css/style.css" />
-  <link rel="stylesheet" href="../../../assets/plugins/toastr/toatr.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.png" />
+  <link rel="stylesheet" href="./admin_css/style_index.css">  
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="../../assets/css/line-awesome.min.css" />
+  <link rel="stylesheet" href="../../assets/css/material.css" />
+  <link rel="stylesheet" href="../../assets/css/line-awesome.min.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/plugins/toastr/toatr.css" />
 </head>
 
 <body>
@@ -41,7 +42,6 @@
     <div b-ho2uat4v6r="" class="page-title-box">
       <h3 b-ho2uat4v6r="">Trang tin tức VnExpress</h3>
     </div>
-    <span class="page-title-box">Thứ năm, 5/12/2024</span>
     <!-- /Header Title -->
 
 
@@ -94,25 +94,22 @@
 
   <div class="container">
     <div class="card custom-card mt-2">
-      <div class="card-header">
-        Danh sách yêu cầu biên mục
+      <div class="card-header text-primary">
+        Danh sách tin tức
       </div>
       <div class="card-body">
 
+        <div class="text-end">
+          <a href="dashboard.php?controller=admin&action=addNews" class="btn btn-primary"><i class="fa-solid fa-plus"></i>Thêm bài viết</a>
 
+        </div>
         <div id="grid" class="row">
           <div class="search_bm_request">
             <div class="row">
-              <div class="col-xl-10 col-lg-10 col-md-10">
+              <div class="my-3">
+                <div class="d-flex flex-row justify-content-center align-items-center">
 
-                <div class="search_bm_request text-center">
-                  <div class="row d-flex flex-row justify-content-center">
-                    <div class="ctrl_title title mb-2 col-md-3">
-                      <div class="form-focus"> <input value="" id="txt_title" type="text" class=" rounded form-control form-control-sm floating "><label class="focus-label">Nhan đề </label></div>
-                    </div>
-                    <div class="ctrl_author author mb-2 col-md-3">
-                      <div class="form-focus"> <input value="" id="txt_author" type="text" class="  rounded form-control form-control-sm floating "><label class="focus-label">Danh mục </label></div>
-                    </div>
+                  <div class="">
 
                   </div>
                 </div>
@@ -120,14 +117,6 @@
 
               </div>
 
-              <div class="col-xl-2 col-lg-2 col-md-2">
-
-                <button id="btn-filter" class="mx-1 mb-2 btn btn-primary btn-sm"> <i class="fa-solid fa-magnifying-glass "></i> </button>
-                <button id="btn-refresh" class="mx-1 mb-2 bg-secondary text-white btn btn-outline-secondary2 btn-sm"> <i class="fa-solid fa-arrow-rotate-left "></i> </button>
-
-
-
-              </div>
 
             </div>
           </div>
@@ -139,7 +128,7 @@
                   <th>Tiêu đề</th>
                   <th>Danh mục</th>
                   <th>Ngày tạo</th>
-                  <th>Hành động</th>
+                  <th class="text-center">Hành động</th>
                 </tr>
               </thead>
               <tbody>
@@ -152,10 +141,10 @@
                       <td><?= htmlspecialchars($item['title']) ?></td>
                       <td><?= htmlspecialchars($item['category_name']) ?></td>
                       <td><?= htmlspecialchars($item['created_at']) ?></td>
-                      <td>
-                        <a href="dashboard.php?controller=admin&action=editNews&id=<?= htmlspecialchars($item['id']) ?>" class="btn btn-warning">Sửa</a>
+                      <td class="text-center">
+                        <a href="dashboard.php?controller=admin&action=editNews&id=<?= htmlspecialchars($item['id']) ?>" class="btn btn-info">Sửa</a>
                         <a href="dashboard.php?controller=admin&action=deleteNews&id=<?= htmlspecialchars($item['id']) ?>"
-                          class="btn btn-danger"
+                          class="btn btn-warning"
                           onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này?');">Xóa</a>
                       </td>
                     </tr>
@@ -193,36 +182,16 @@
     </div>
   </div>
 
-  <h2>Danh sách bài viết</h2>
-  <a href="dashboard.php?controller=admin&action=addNews" class="btn btn-success">Thêm bài viết</a>
-
-  <div class="search-bar">
-    <input type="text" placeholder="Nhập tiêu đề" id="searchTitle">
-    <button type="button">Tìm kiếm</button>
-  </div>
 
 
 
-  <footer>
-    <p>
-      <a href="https://vnexpress.net/" class="logo_ft">
-        <img src="https://s1.vnecdn.net/vnexpress/restruct/i/v9533/v2_2019/pc/graphics/logo.svg" alt="Logo"> VnExpress
-      </a>
-    </p>
-    <p>
-      <a href="https://vnexpress.net/dieu-khoan-su-dung">Điều khoản sử dụng</a> |
-      <a href="https://vnexpress.net/chinh-sach-bao-mat">Chính sách bảo mật</a> |
-      <a href="https://vnexpress.net/chinh-sach-cookies">Cookies</a> |
-      <a href="/rss">RSS</a>
-    </p>
-  </footer>
 
 </body>
-<script src="../../../assets/js/jquery-3.7.1.min.js"></script>
-<script src="../../../assets/js/bootstrap.bundle.min.js"></script>
-<script src="../../../assets/js/const.js"></script>
-<script src="../../../assets/js/uc-helpers.js"></script>
-<script src="../../../assets/js/toast.js"></script>
-<script src="../../../assets/plugins/toastr/toastr.js"></script>
+<script src="../../assets/js/jquery-3.7.1.min.js"></script>
+<script src="../../assets/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/js/const.js"></script>
+<script src="../../assets/js/uc-helpers.js"></script>
+<script src="../../assets/js/toast.js"></script>
+<script src="../../assets/plugins/toastr/toastr.js"></script>
 
 </html>
