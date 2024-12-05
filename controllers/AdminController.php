@@ -29,14 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
 
         if ($user['role'] == 1) {
-            header('Location: /admin/dashboard.php');
+            header('Location: ../views/admin/dashboard.php');
         } else {
-            header('Location: /home/index.php');
+            header('Location: ../views/home/index.php');
         }
         exit;
     }
 
     $_SESSION['error'] = 'Tên đăng nhập hoặc mật khẩu không đúng.';
-    header('Location: /login.php');
+    header('Location: ../views/admin/login.php');
     exit;
 }
