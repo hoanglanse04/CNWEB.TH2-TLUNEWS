@@ -4,7 +4,7 @@ class Database {
     private $db;
     private function connect() {
         $host = '127.0.0.1';        
-        $db = 'tintuc';  
+        $db = 'testdb';  
         $user = 'root';      
         $pass = '';         
         $charset = 'utf8mb4';      

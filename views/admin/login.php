@@ -39,10 +39,11 @@
                     <p class="account-subtitle" style="font-size: 16px">Trang tin tức VnExpress</p>
 
                     <!-- Account Form -->
-                    <form id="login-form">
+                    <form action="index.php?action=login" id="login-form" method="POST">
                         <div class="input-block mb-4">
                             <label class="col-form-label">T&#xEA;n &#x111;&#x103;ng nh&#x1EAD;p</label>
-                            <input class="form-control" type="text" tabindex="1" id="username" name="username" />
+                            <input class="form-control" type="text" tabindex="1" id="username" name="username"
+                                required />
                         </div>
                         <div class="input-block mb-4">
                             <div class="row align-items-center">
@@ -56,13 +57,13 @@
                                 </div>
                             </div>
                             <div class="position-relative">
-                                <input class="form-control" type="password" tabindex="2" id="password"
-                                    name="password" />
+                                <input class="form-control" type="password" tabindex="2" id="password" name="password"
+                                    required />
                                 <span class="fa-solid fa-eye-slash" id="toggle-password"></span>
                             </div>
                         </div>
                         <div class="input-block mb-4 text-center">
-                            <button class="btn btn-primary account-btn" id="btn-loggin">&#x110;&#x103;ng
+                            <button type="submit" class="btn btn-primary account-btn" id="btn-loggin">&#x110;&#x103;ng
                                 nh&#x1EAD;p</button>
                         </div>
                     </form>
