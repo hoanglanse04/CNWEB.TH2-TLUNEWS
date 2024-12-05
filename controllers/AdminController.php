@@ -36,7 +36,7 @@ class AdminController {
             $newsModel->create($title, $content, $image, $category_id);  // Lưu bài viết vào CSDL
 
             // Chuyển hướng về trang danh sách bài viết
-            header("Location: index.php?controller=admin&action=news");
+            header("Location: dashboard.php?controller=admin&action=news");
             exit();
         }
 
@@ -66,7 +66,7 @@ class AdminController {
             $newsModel->update($id, $title, $content, $image, $category_id);
 
             // Chuyển hướng về trang danh sách bài viết
-            header("Location: index.php?controller=admin&action=news");
+            header("Location: dashboard.php?controller=admin&action=news");
             exit();
         }
 
@@ -83,7 +83,7 @@ class AdminController {
         $newsModel->delete($id);  // Xóa bài viết trong CSDL
         
         // Chuyển hướng về trang danh sách bài viết
-        header("Location: index.php?controller=admin&action=news");
+        header("Location: dashboard.php?controller=admin&action=news");
         exit();
     }
 }

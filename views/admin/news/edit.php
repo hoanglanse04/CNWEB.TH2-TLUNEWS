@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Sửa tin tức</title>
-    <link rel="stylesheet" href="../news/admin_css/style.css">
+    <link rel="stylesheet" href="./admin_css/style.css">
 </head>
 <body>
 <h2>Sửa bài viết</h2>
