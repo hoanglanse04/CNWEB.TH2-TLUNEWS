@@ -1,22 +1,39 @@
 <?php
+
 class Database {
-    private static $instance = null;
+    private $db;
 
-    // Hàm kết nối đến cơ sở dữ liệu
-    public static function connect() {
-        if (self::$instance === null) {
-            try {
-                $host = '127.0.0.1';
-                $dbname = 'tintuc';
-                $username = 'root'; 
-                $password = '';
+    // Hàm kết nối cơ sở dữ liệu
+    private function connect() {
+        $host = '127.0.0.1';        
+        $db = 'tintuc';  
+        $user = 'root';      
+        $pass = '';         
+        $charset = 'utf8mb4';      
 
-                self::$instance = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-                self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch (PDOException $e) {
-                die("Lỗi kết nối cơ sở dữ liệu: " . $e->getMessage());
-            }
+        $dsn = "mysql:host=$host;dbname=$db;charset=$charset"; 
+        $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,       
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, 
+            PDO::ATTR_EMULATE_PREPARES => false,              
+        ];
+
+        try {
+            // Tạo kết nối và lưu vào biến $db
+            $this->db = new PDO($dsn, $user, $pass, $options);   
+        } catch (\PDOException $e) {
+            // Xử lý lỗi kết nối
+            echo "Lỗi kết nối: " . $e->getMessage();
         }
-        return self::$instance;
+    }
+
+    // Hàm lấy kết nối cơ sở dữ liệu, gọi connect() nếu chưa kết nối
+    public function getDb() {
+        if ($this->db === null) {
+            $this->connect();  // Kết nối nếu chưa có kết nối nào
+        }
+        return $this->db;  // Trả về đối tượng PDO để sử dụng
     }
 }
+
+?>

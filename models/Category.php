@@ -1,19 +1,22 @@
 <?php
-require_once 'models/Database.php';
+require_once __DIR__ . '/Database.php';
 
 class Category {
-    public static function getAll() {
-        $db = Database::connect();
-        $stmt = $db->query("select * from categories");
-        return $stmt->fetchAll();
+    private $db;
+
+    public function __construct() {
+        $this->db = (new Database())->getDb(); // Lấy kết nối từ lớp Database
     }
 
-    public static function getById($id) {
-        $db = Database::connect();
-        $stmt = $db->prepare("select * from categories WHERE id = ?");
+    public function getAll() {
+        $stmt = $this->db->query("SELECT * FROM categories");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);  // Trả về mảng kết hợp
+    }
+
+    public function getById($id) {
+        $stmt = $this->db->prepare("SELECT * FROM categories WHERE id = ?");
         $stmt->execute([$id]);
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);  // Trả về mảng kết hợp cho kết quả duy nhất
     }
 }
-
 ?>

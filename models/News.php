@@ -1,37 +1,65 @@
 <?php
-require_once 'models/Database.php';
+require_once __DIR__ . '/Database.php';
 
 class News {
-    public static function getAll() {
-        $db = Database::connect();
-        $stmt = $db->query("select news.*, categories.name as category_name  from news join categories on news.category_id = categories.id");
-        return $stmt->fetchAll();
+    private $db;
+
+    public function __construct() {
+        $this->db = (new Database())->getDb(); // Lấy kết nối từ lớp Database
     }
 
-    public static function create($title, $content, $image, $category_id) {
-        $db = Database::connect();
-        $stmt = $db->prepare("insert into news (title, content, image, created_at, category_id) values (?, ?, ?, NOW(), ?)");
-        return $stmt->execute([$title, $content, $image, $category_id]);
+    public function getAll() {
+        $query = "
+            SELECT n.id, n.title, c.name AS category_name, n.created_at 
+            FROM news n
+            LEFT JOIN categories c ON n.category_id = c.id
+        ";
+        try {
+            $stmt = $this->db->query($query);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Lỗi khi lấy dữ liệu: " . $e->getMessage();
+            return []; // Trả về mảng rỗng nếu có lỗi
+        }
     }
 
-    public static function getById($id) {
-        $db = Database::connect();
-        $stmt = $db->prepare("select * from news where id = ?");
-        $stmt->execute([$id]);
-        return $stmt->fetch();
+    public function getById($id) {
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM news WHERE id = ?");
+            $stmt->execute([$id]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result ? $result : null;  // Trả về null nếu không tìm thấy
+        } catch (PDOException $e) {
+            echo "Lỗi khi lấy bài viết: " . $e->getMessage();
+            return null;  // Trả về null nếu có lỗi
+        }
     }
 
-    public static function update($id, $title, $content, $image, $category_id) {
-        $db = Database::connect();
-        $stmt = $db->prepare("update news set title = ?, content = ?, image = ?, category_id = ? where id = ?");
-        return $stmt->execute([$title, $content, $image, $category_id, $id]);
+    public function create($title, $content, $image, $category_id) {
+        try {
+            $stmt = $this->db->prepare("INSERT INTO news (title, content, image, category_id, created_at) VALUES (?, ?, ?, ?, NOW())");
+            $stmt->execute([$title, $content, $image, $category_id]);
+        } catch (PDOException $e) {
+            echo "Lỗi khi thêm bài viết: " . $e->getMessage();
+        }
     }
 
-    public static function delete($id) {
-        $db = Database::connect();
-        $stmt = $db->prepare("delete from news where id = ?");
-        return $stmt->execute([$id]);
+    public function update($id, $title, $content, $image, $category_id) {
+        try {
+            $stmt = $this->db->prepare("UPDATE news SET title = ?, content = ?, image = ?, category_id = ? WHERE id = ?");
+            $stmt->execute([$title, $content, $image, $category_id, $id]);
+        } catch (PDOException $e) {
+            echo "Lỗi khi cập nhật bài viết: " . $e->getMessage();
+        }
+    }
+
+    public function delete($id) {
+        try {
+            $stmt = $this->db->prepare("DELETE FROM news WHERE id = ?");
+            $stmt->execute([$id]);
+        } catch (PDOException $e) {
+            echo "Lỗi khi xóa bài viết: " . $e->getMessage();
+        }
     }
 }
-
 ?>

@@ -1,5 +1,5 @@
 <h2>Danh sách bài viết</h2>
-<a href="index.php?controller=admin&action=addNews" class="btn btn-success">Thêm bài viết</a>
+<a href="test.php?controller=admin&action=addNews" class="btn btn-success">Thêm bài viết</a>
 <table class="table mt-4">
     <thead>
         <tr>
@@ -11,17 +11,28 @@
         </tr>
     </thead>
     <tbody>
+    <?php 
+    
+    if (!empty($news) && is_array($news)): ?>
         <?php foreach ($news as $item): ?>
             <tr>
-                <td><?= $item['id'] ?></td>
-                <td><?= $item['title'] ?></td>
-                <td><?= $item['category_name'] ?></td>
-                <td><?= $item['created_at'] ?></td>
+                <td><?= htmlspecialchars($item['id']) ?></td>
+                <td><?= htmlspecialchars($item['title']) ?></td>
+                <td><?= htmlspecialchars($item['category_name']) ?></td>
+                <td><?= htmlspecialchars($item['created_at']) ?></td>
                 <td>
-                    <a href="index.php?controller=admin&action=editNews&id=<?= $item['id'] ?>" class="btn btn-warning">Sửa</a>
-                    <a href="index.php?controller=admin&action=deleteNews&id=<?= $item['id'] ?>" class="btn btn-danger">Xóa</a>
+                    <a href="test.php?controller=admin&action=editNews&id=<?= htmlspecialchars($item['id']) ?>" class="btn btn-warning">Sửa</a>
+                    <a href="test.php?controller=admin&action=deleteNews&id=<?= htmlspecialchars($item['id']) ?>" 
+                       class="btn btn-danger" 
+                       onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này?');">Xóa</a>
                 </td>
             </tr>
         <?php endforeach; ?>
-    </tbody>
+    <?php else: ?>
+        <tr>
+            <td colspan="5" class="text-center">Không có bài viết nào hoặc có lỗi khi truy xuất dữ liệu!</td>
+        </tr>
+    <?php endif; ?>
+</tbody>
 </table>
+

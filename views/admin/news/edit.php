@@ -2,21 +2,23 @@
 <form method="POST" action="">
     <div class="mb-3">
         <label for="title" class="form-label">Tiêu đề</label>
-        <input type="text" name="title" class="form-control" value="<?= $news['title'] ?>" required>
+        <input type="text" name="title" class="form-control" value="<?= htmlspecialchars($news['title']) ?>" required>
     </div>
     <div class="mb-3">
         <label for="content" class="form-label">Nội dung</label>
-        <textarea name="content" class="form-control" required><?= $news['content'] ?></textarea>
+        <textarea name="content" class="form-control" required><?= htmlspecialchars($news['content']) ?></textarea>
     </div>
     <div class="mb-3">
         <label for="image" class="form-label">Hình ảnh</label>
-        <input type="text" name="image" class="form-control" value="<?= $news['image'] ?>">
+        <input type="text" name="image" class="form-control" value="<?= htmlspecialchars($news['image']) ?>">
     </div>
     <div class="mb-3">
         <label for="category_id" class="form-label">Danh mục</label>
-        <select name="category_id" class="form-select">
+        <select name="category_id" class="form-select" required>
             <?php foreach ($categories as $category): ?>
-                <option value="<?= $category['id'] ?>" <?= $news['category_id'] == $category['id'] ? 'selected' : '' ?>><?= $category['name'] ?></option>
+                <option value="<?= htmlspecialchars($category['id']) ?>" <?= $news['category_id'] == $category['id'] ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($category['name']) ?>
+                </option>
             <?php endforeach; ?>
         </select>
     </div>
