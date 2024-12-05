@@ -34,7 +34,7 @@ class AdminController {
                 header('Location: index.php?action=dashboard');
             } else {
                 $_SESSION['user_logged_in'] = true;
-                header('Location: home/index.php');
+                header('Location:index.php?action=home');
             }
             exit();
         } else {

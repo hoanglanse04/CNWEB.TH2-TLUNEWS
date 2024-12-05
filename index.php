@@ -1,6 +1,7 @@
 <?php
 require_once './models/database.php';
 require_once './controllers/AdminController.php';
+require_once './controllers/HomeController.php'; 
 
 $data = new Database();
 $db = $data->getDb();
@@ -17,6 +18,7 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
 }
 
 $adminController = new AdminController($db);
+$homeController = new HomeController($db);
 
 switch ($action) {
     case 'login':
@@ -25,7 +27,7 @@ switch ($action) {
                 header('Location: index.php?action=dashboard');
                 exit();
             } else { 
-                header('Location: home/index.php');
+                header('Location:index.php?action=home');
                 exit();
             }
         }
@@ -41,6 +43,9 @@ switch ($action) {
             header('Location: index.php?action=login');
             exit();
         }
+        break;
+    case 'home': 
+        $homeController->index();
         break;
     default:
         echo "404 - Not Found";

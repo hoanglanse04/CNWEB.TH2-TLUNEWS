@@ -83,7 +83,7 @@
                     <span b-ho2uat4v6r="" id="user_name">nxbhongduc</span>
                 </a>
                 <div b-ho2uat4v6r="" class="dropdown-menu">
-                    <a b-ho2uat4v6r="" class="dropdown-item btn-logout">Đăng xuất</a>
+                    <a href="index.php?action=logout" b-ho2uat4v6r="" class="dropdown-item btn-logout">Đăng xuất</a>
                 </div>
             </li>
         </ul>
@@ -95,7 +95,7 @@
                 <i b-ho2uat4v6r="" class="fa-solid fa-ellipsis-vertical"></i>
             </a>
             <div b-ho2uat4v6r="" class="dropdown-menu dropdown-menu-right">
-                <a b-ho2uat4v6r="" class="dropdown-item btn-logout">Đăng xuất</a>
+                <a href="index.php?action=logout" b-ho2uat4v6r="" class="dropdown-item btn-logout">Đăng xuất</a>
             </div>
         </div>
         <!-- /Mobile Menu -->
