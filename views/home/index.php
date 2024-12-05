@@ -22,7 +22,7 @@
 </head>
 
 <body class="">
-  <div b-ho2uat4v6r="" class="header">
+  <div b-ho2uat4v6r="" class="header d-block position-relative">
     <!-- Logo -->
     <div b-ho2uat4v6r="" class="header-left">
       <a b-ho2uat4v6r="" href="admin-dashboard.html" class="logo">
@@ -43,6 +43,7 @@
     <div b-ho2uat4v6r="" class="page-title-box">
       <h3 b-ho2uat4v6r="">Trang tin tức VnExpress</h3>
     </div>
+    <span class="page-title-box">Thứ năm, 5/12/2024</span>
     <!-- /Header Title -->
 
 
@@ -90,55 +91,83 @@
     </div>
     <!-- /Mobile Menu -->
   </div>
-  <div class="">
+
+
+
+  <div class="container">
     <div class="row">
-      <div class="trand-right-single d-flex">
-        <div class="trand-right-img">
-          <img src="../../assets/img/" alt="">
+      <div class="news-item my-2 row">
+        <div class="col-sm-3">
+          <img class="img rounded p-1" src="../../assets/img/chinhtri.jpg" alt="">
         </div>
-        <div class="trand-right-cap">
-          <span class="color1">Concert</span>
-          <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
-        </div>
-      </div>
-      <div class="trand-right-single d-flex">
-        <div class="trand-right-img">
-          <img src="assets/img/trending/right2.jpg" alt="">
-        </div>
-        <div class="trand-right-cap">
-          <span class="color3">sea beach</span>
-          <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
+        <div class="col-sm-9">
+          <span class="category"> <a href="">Chính trị</a></span>
+          <h4><a class="title" href="details.html">
+              <h5>Tin tức chính trị</h5>
+            </a></h4>
         </div>
       </div>
-      <div class="trand-right-single d-flex">
-        <div class="trand-right-img">
-          <img src="assets/img/trending/right3.jpg" alt="">
+      <div class="news-item my-2 row">
+        <div class="col-sm-3">
+          <img class="img rounded p-1" src="../../assets/img/congnghe.jpg" alt="">
         </div>
-        <div class="trand-right-cap">
-          <span class="color2">Bike Show</span>
-          <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
-        </div>
-      </div>
-      <div class="trand-right-single d-flex">
-        <div class="trand-right-img">
-          <img src="assets/img/trending/right4.jpg" alt="">
-        </div>
-        <div class="trand-right-cap">
-          <span class="color4">See beach</span>
-          <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
+        <div class="col-sm-9">
+          <span class="category"><a href="">Công nghệ</a></span>
+          <h4><a class="title" href="details.html">
+              <h5>Tin tức công nghệ</h5>
+            </a></h4>
         </div>
       </div>
-      <div class="trand-right-single d-flex">
-        <div class="trand-right-img">
-          <img src="assets/img/trending/right5.jpg" alt="">
+      <div class="news-item my-2 row">
+        <div class="col-sm-3">
+          <img class="img rounded p-1" src="../../assets/img/giaoduc.jpg" alt="">
         </div>
-        <div class="trand-right-cap">
-          <span class="color1">Skeping</span>
-          <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
+        <div class="col-sm-9">
+          <span class="category"><a href="">Giáo dục</a> </span>
+          <h4><a class="title" href="details.html">
+              <h5>Tin tức giáo dục</h5>
+            </a></h4>
+        </div>
+      </div>
+      <div class="news-item my-2 row">
+        <div class="col-sm-3">
+          <img class="img rounded p-1" src="../../assets/img/suckhoe.jpg" alt="">
+        </div>
+        <div class="col-sm-9">
+          <span class="category"><a href="">Sức khỏe</a> </span>
+          <h4><a class="title" href="details.html">
+              <h5>Tin tức sức khỏe</h5>
+            </a></h4>
+        </div>
+      </div>
+      <div class="news-item my-2 row">
+        <div class="col-sm-3">
+          <img class="img rounded p-1" src="../../assets/img/thethao.jpg" alt="">
+        </div>
+        <div class="col-sm-9">
+          <span class="category"><a href="">Thể thao</a> </span>
+          <h4><a class="title" href="details.html">
+              <h5>Tin tức thể thao</h5>
+            </a></h4>
         </div>
       </div>
     </div>
+
+    <div class="d-flex flex-row justify-content-between align-items-center" style="border-bottom: 1px solid #e5e5e5;border-top: 1px solid #bdbdbd;">
+      <p style="position: relative;top: 3px;"><a title="VnExpress - Báo tiếng Việt nhiều người xem nhất" href="https://vnexpress.net/" data-medium="Logo" class="logo_ft" onclick="trackingLogoHome('logo-footer', this.href)" data-itm-source="#vn_source=Home&amp;vn_campaign=Footer&amp;vn_medium=Logo&amp;vn_term=Desktop" data-itm-added="1">
+          <span style="display: inline-block; vertical-align: top; margin:5px 8px 0 0; color: #222;">Báo điện tử</span>
+          <img src="https://s1.vnecdn.net/vnexpress/restruct/i/v9533/v2_2019/pc/graphics/logo.svg" alt="VnExpress - Bao tieng Viet nhieu nguoi xem nhat"></a></p>
+      <div class="right flexbox">
+        <a href="https://vnexpress.net/dieu-khoan-su-dung" class="text-secondary" data-medium="Menu-DieuKhoanSuDung" title="Điều khoản sử dụng" data-itm-source="#vn_source=Home&amp;vn_campaign=Footer&amp;vn_medium=Menu-DieuKhoanSuDung&amp;vn_term=Desktop" data-itm-added="1">Điều khoản sử dụng | </a>
+        <a class="text-secondary" href="https://vnexpress.net/chinh-sach-bao-mat" data-medium="Menu-ChinhSachBaoMat" title="Chính sách bảo mật" data-itm-source="#vn_source=Home&amp;vn_campaign=Footer&amp;vn_medium=Menu-ChinhSachBaoMat&amp;vn_term=Desktop" data-itm-added="1">Chính sách bảo mật | </a>
+        <a class="text-secondary" href="https://vnexpress.net/chinh-sach-cookies" data-medium="Menu-Cookies" title="Cookies" data-itm-source="#vn_source=Home&amp;vn_campaign=Footer&amp;vn_medium=Menu-Cookies&amp;vn_term=Desktop" data-itm-added="1">Cookies | </a>
+        <a class="text-secondary" href="/rss" data-medium="Menu-Rss" title="RSS" data-itm-source="#vn_source=Home&amp;vn_campaign=Footer&amp;vn_medium=Menu-Rss&amp;vn_term=Desktop" data-itm-added="1">RSS</a>
+        <span class="text-secondary">Theo dõi VnExpress trên | </span>
+       
+      </div>
+    </div>
   </div>
+
   <!-- Main Wrapper -->
 
   <!-- /Main Wrapper -->
