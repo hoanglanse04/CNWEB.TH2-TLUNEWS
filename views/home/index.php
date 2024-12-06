@@ -3,6 +3,9 @@
     data-sidebar-image="none">
 
 <head>
+    <?php
+    $base_url = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME']);
+    ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -10,14 +13,14 @@
     <meta name="theme-color" content="#ffffff">
     <title>&#x110;&#x103;ng nh&#x1EAD;Tin tức</title>
     <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.png" />
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/fontawesome.min.css" />
-    <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="../../assets/css/line-awesome.min.css" />
-    <link rel="stylesheet" href="../../assets/css/material.css" />
-    <link rel="stylesheet" href="../../assets/css/line-awesome.min.css" />
-    <link rel="stylesheet" href="../../assets/css/style.css" />
-    <link rel="stylesheet" href="../../assets/plugins/toastr/toatr.css" />
+    <link rel="stylesheet" href="<?php echo $base_url; ?>/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?php echo $base_url; ?>/assets/plugins/fontawesome/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="<?php echo $base_url; ?>/assets/plugins/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="<?php echo $base_url; ?>/assets/css/line-awesome.min.css" />
+    <link rel="stylesheet" href="<?php echo $base_url; ?>/assets/css/material.css" />
+    <link rel="stylesheet" href="<?php echo $base_url; ?>/assets/css/style.css" />
+    <link rel="stylesheet" href="<?php echo $base_url; ?>/assets/plugins/toastr/toastr.css" />
+
 
 </head>
 
@@ -80,7 +83,7 @@
                     <span b-ho2uat4v6r="" id="user_name">nxbhongduc</span>
                 </a>
                 <div b-ho2uat4v6r="" class="dropdown-menu">
-                    <a b-ho2uat4v6r="" class="dropdown-item btn-logout">Đăng xuất</a>
+                    <a b-ho2uat4v6r="" href="index.php?action=logout" class="dropdown-item btn-logout">Đăng xuất</a>
                 </div>
             </li>
         </ul>
@@ -92,7 +95,7 @@
                 <i b-ho2uat4v6r="" class="fa-solid fa-ellipsis-vertical"></i>
             </a>
             <div b-ho2uat4v6r="" class="dropdown-menu dropdown-menu-right">
-                <a b-ho2uat4v6r="" class="dropdown-item btn-logout">Đăng xuất</a>
+                <a b-ho2uat4v6r="" href="index.php?action=logout" class="dropdown-item btn-logout">Đăng xuất</a>
             </div>
         </div>
         <!-- /Mobile Menu -->
@@ -195,12 +198,13 @@
     <!-- Main Wrapper -->
 
     <!-- /Main Wrapper -->
-    <script src="../../assets/js/jquery-3.7.1.min.js"></script>
-    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/js/const.js"></script>
-    <script src="../../assets/js/uc-helpers.js"></script>
-    <script src="../../assets/js/toast.js"></script>
-    <script src="../../assets/plugins/toastr/toastr.js"></script>
+    <script src="<?php echo $base_url; ?>/assets/js/jquery-3.7.1.min.js"></script>
+    <script src="<?php echo $base_url; ?>/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo $base_url; ?>/assets/js/const.js"></script>
+    <script src="<?php echo $base_url; ?>/assets/js/uc-helpers.js"></script>
+    <script src="<?php echo $base_url; ?>/assets/js/toast.js"></script>
+    <script src="<?php echo $base_url; ?>/assets/plugins/toastr/toastr.js"></script>
+
 
     <script>
     $("#toggle-password").click(function() {
