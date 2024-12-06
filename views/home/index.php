@@ -1,3 +1,9 @@
+<?php
+session_start(); // Khởi tạo session
+
+// Kiểm tra xem người dùng đã đăng nhập chưa
+
+?>
 <!DOCTYPE html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none">
@@ -23,13 +29,8 @@
 
 <body class="">
     <?php
-            session_start();
-            if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 1) {
-                header('Location: ./index.php');
-                exit;
-            }   
     ?>
-    <div b-ho2uat4v6r="" class="header d-block position-relative">
+    <div b-ho2uat4v6r="" class="header d-block position-relative ">
         <!-- Logo -->
         <div b-ho2uat4v6r="" class="header-left">
             <a b-ho2uat4v6r="" href="admin-dashboard.html" class="logo">
@@ -53,7 +54,6 @@
         <div b-ho2uat4v6r="" class="page-title-box">
             <h3 b-ho2uat4v6r="">Trang tin tức VnExpress</h3>
         </div>
-        <span class="page-title-box">Thứ năm, 5/12/2024</span>
         <!-- /Header Title -->
 
 
@@ -84,10 +84,14 @@
                     <span b-ho2uat4v6r="" class="user-img">
                         <span b-ho2uat4v6r="" class="status online"></span>
                     </span>
-                    <span b-ho2uat4v6r="" id="user_name">nxbhongduc</span>
+                    <span b-ho2uat4v6r="" id="user_name"><?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+                        echo  $_SESSION['username']; // Lấy và hiển thị username
+                    } else {
+                        echo "Bạn chưa đăng nhập.";
+                    } ?></span>
                 </a>
                 <div b-ho2uat4v6r="" class="dropdown-menu">
-                    <a b-ho2uat4v6r="" class="dropdown-item btn-logout">Đăng xuất</a>
+                    <a href="../../logout.php" b-ho2uat4v6r="" class="dropdown-item btn-logout">Đăng xuất</a>
                 </div>
             </li>
         </ul>

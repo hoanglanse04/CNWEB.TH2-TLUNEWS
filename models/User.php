@@ -1,4 +1,7 @@
-    <?php 
+<?php 
+
+
+
     class User {
         private $conn;
         public function __construct($db){
