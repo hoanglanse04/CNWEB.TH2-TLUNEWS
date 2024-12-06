@@ -25,7 +25,9 @@ session_start(); // Khởi tạo session
     <link rel="stylesheet" href="../../assets/css/style.css" />
     <link rel="stylesheet" href="../../assets/plugins/toastr/toatr.css" />
 
+
 </head>
+<body>
 
 <body class="">
     <?php
@@ -230,6 +232,33 @@ session_start(); // Khởi tạo session
     })
     </script>
 
-</body>
 
+    <!-- Form tìm kiếm -->
+    <form method="get" action="index.php">
+        <input type="hidden" name="controller" value="news">
+        <input type="hidden" name="action" value="search">
+        <input type="text" name="keyword" placeholder="Nhập từ khóa tìm kiếm" value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>">
+        <button type="submit">Tìm kiếm</button>
+    </form>
+
+    <div>
+    <?php if (isset($newsList) && !empty($newsList)): ?>
+        <?php foreach ($newsList as $news): ?>
+            <div>
+                <h2>
+                <a href="detail.php?controller=news&action=detail&id=<?= (int)$news['id']; ?>">
+
+                        <?= htmlspecialchars($news['title'], ENT_QUOTES, 'UTF-8'); ?>
+                    </a>
+                </h2>
+                
+            </div>
+            <hr>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>Không có tin tức nào để hiển thị.</p>
+    <?php endif; ?>
+</div>
+
+</body>
 </html>
