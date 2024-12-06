@@ -6,7 +6,7 @@ class Database {
     // Hàm kết nối cơ sở dữ liệu
     private function connect() {
         $host = '127.0.0.1';        
-        $db = 'tintuc';  
+        $db = 'tintuc';  // Bạn có thể thay đổi giá trị này nếu cần
         $user = 'root';      
         $pass = '';         
         $charset = 'utf8mb4';      

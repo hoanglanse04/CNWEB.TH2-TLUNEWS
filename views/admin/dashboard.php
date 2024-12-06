@@ -1,7 +1,6 @@
 
-
 <?php
-include '../../controllers/AdminController.php';
+include './../../controllers/AdminController.php';
 
 // include '../../../controllers/AdminController.php'; 
 
