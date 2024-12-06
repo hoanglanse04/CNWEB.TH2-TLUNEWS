@@ -70,10 +70,14 @@
           <span b-ho2uat4v6r="" class="user-img">
             <span b-ho2uat4v6r="" class="status online"></span>
           </span>
-          <span b-ho2uat4v6r="" id="user_name">nxbhongduc</span>
+          <span b-ho2uat4v6r="" id="user_name"><?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+                                                  echo  $_SESSION['username']; // Lấy và hiển thị username
+                                                } else {
+                                                  echo "Bạn chưa đăng nhập.";
+                                                } ?></span>
         </a>
         <div b-ho2uat4v6r="" class="dropdown-menu">
-          <a b-ho2uat4v6r="" class="dropdown-item btn-logout">Đăng xuất</a>
+          <a b-ho2uat4v6r="" href="../../logout.php" class="dropdown-item btn-logout">Đăng xuất</a>
         </div>
       </li>
     </ul>
@@ -142,7 +146,7 @@
                       <td style="width: 15%;"><?= htmlspecialchars($item['category_name']) ?></td>
                       <td style="width: 15%;"><?= htmlspecialchars($item['title']) ?></td>
                       <td style="width: 35%;" class="">
-                        <?= htmlspecialchars(substr($item['content'], 0, 70)).'...' ?> <!-- Lấy 50 ký tự đầu tiên -->
+                        <?= htmlspecialchars(substr($item['content'], 0, 70)) . '...' ?> <!-- Lấy 50 ký tự đầu tiên -->
                       </td>
                       <td style="width: 15%;"><?= htmlspecialchars($item['created_at']) ?></td>
                       <td style="width: 15%;" class="text-center ">
