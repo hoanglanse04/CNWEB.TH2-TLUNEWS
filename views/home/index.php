@@ -22,13 +22,6 @@
 </head>
 
 <body class="">
-    <?php
-            session_start();
-            if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 1) {
-                header('Location: ./index.php');
-                exit;
-            }   
-    ?>
     <div b-ho2uat4v6r="" class="header d-block position-relative">
         <!-- Logo -->
         <div b-ho2uat4v6r="" class="header-left">

@@ -18,19 +18,19 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
 }
 
 $adminController = new AdminController($db);
-$homeController = new HomeController($db);
+// $homeController = new HomeController($db);
 
 switch ($action) {
     case 'login':
-        if (isset($_SESSION['role'])) {
-            if ($_SESSION['role'] == 1) { 
-                header('Location: index.php?action=dashboard');
-                exit();
-            } else { 
-                header('Location:index.php?action=home');
-                exit();
-            }
-        }
+        // if (isset($_SESSION['role'])) {
+        //     if ($_SESSION['role'] == 1) { 
+        //         header('Location: index.php?action=dashboard');
+        //         exit();
+        //     } else { 
+        //         header('Location:index.php?action=home');
+        //         exit();
+        //     }
+        // }
         $adminController->login();
         break;
     case 'logout':
@@ -45,7 +45,12 @@ switch ($action) {
         }
         break;
     case 'home': 
-        $homeController->index();
+        if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']) {
+            $adminController->home();
+        } else {
+            header('Location: index.php?action=login');
+            exit();
+        }
         break;
     default:
         echo "404 - Not Found";

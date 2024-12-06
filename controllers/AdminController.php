@@ -31,8 +31,9 @@ class AdminController {
 
             if ($user['role'] == 1) {
                 $_SESSION['admin_logged_in'] = true;
-                header('Location: index.php?action=dashboard');
-            } else {
+                header('Location:index.php?action=dashboard');
+            } 
+            if($user['role'] == 0) {
                 $_SESSION['user_logged_in'] = true;
                 header('Location:index.php?action=home');
             }
@@ -42,6 +43,7 @@ class AdminController {
         }
 
         require_once './views/admin/login.php';
+
     }
 
     public function logout() {
@@ -51,10 +53,9 @@ class AdminController {
     }
 
     public function dashboard() {
-        if (!isset($_SESSION['admin_logged_in']) || !$_SESSION['admin_logged_in']) {
-            header('Location: index.php?action=login');
-            exit();
-        }
         require_once './views/admin/dashboard.php';
+    }
+    public function home() {
+        require_once './views/home/index.php';
     }
 }
