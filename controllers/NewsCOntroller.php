@@ -24,7 +24,6 @@ class NewsController {
         }
     }
     
-
     public function search($keyword = '') {
         require_once __DIR__ . '/../models/News.php';
 

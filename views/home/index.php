@@ -21,10 +21,12 @@
         <?php foreach ($newsList as $news): ?>
             <div>
                 <h2>
-                    <a href="index.php?controller=news&action=detail&id=<?= (int)$news['id']; ?>">
+                <a href="detail.php?controller=news&action=detail&id=<?= (int)$news['id']; ?>">
+
                         <?= htmlspecialchars($news['title'], ENT_QUOTES, 'UTF-8'); ?>
                     </a>
                 </h2>
+                
             </div>
             <hr>
         <?php endforeach; ?>
