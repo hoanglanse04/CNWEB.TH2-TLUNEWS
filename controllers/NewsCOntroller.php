@@ -1,20 +1,33 @@
 <?php
+require_once __DIR__ . '/../models/Category.php';
+require_once __DIR__ . '/../models/News.php';
+require_once __DIR__ . '/../models/News.php';
+
 class NewsController {
     public function index() {
-        require_once __DIR__ . '/../models/News.php';
-
         $newsModel = new News();
-        $newsList = $newsModel->getAllNews();
+        $news = $newsModel->getAll();
 
-        // Gọi view danh sách tin tức
-        require_once __DIR__ . '/../views/home/index.php';
+        $categoryModel = new Category();
+        $categories = $categoryModel->getAll();
+
+        include __DIR__ . '/../views/home/index.php';
+    }
+    
+    public function news() {
+        $newsModel = new News();
+        $news = $newsModel->getAll();
+
+        $categoryModel = new Category();
+        $categories = $categoryModel->getAll();
+
+        include __DIR__ . '/../views/home/home.php';
     }
 
     public function detail($id) {
-        require_once __DIR__ . '/../models/News.php';
     
         $newsModel = new News();
-        $news = $newsModel->getNewsById($id);
+        $news = $newsModel->getById($id);
     
         if ($news) {
             // Gọi view chi tiết tin tức
@@ -25,7 +38,6 @@ class NewsController {
     }
     
     public function search($keyword = '') {
-        require_once __DIR__ . '/../models/News.php';
 
         $newsModel = new News();
         $newsList = $newsModel->searchNews($keyword);

@@ -72,6 +72,7 @@ class AdminController {
         include __DIR__ . '/../views/admin/news/index.php';
     }
 
+
     public function addNews() {
         $categoryModel = new Category();
         $categories = $categoryModel->getAll();
